@@ -1,11 +1,16 @@
 // Constants
 const generateBtn = document.querySelector("#generate");
 
-let userUpper = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-let userLower = ['a', 'b', 'c', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-let userNumber = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
-let userSpecial = ['!', '@', '#', '$', '%', '^', '&'];
-let userAll = []
+// Declaring the user inputs
+let userUpper = ['ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
+let userUpperArray = userUpper.split('');
+let userLower = ['abcefghijklmnopqrstuvwxyz'];
+let userLowerArray = userLower.split('');
+let userNumber = ['123456789'];
+let userNumberArray = userNumber.split('');
+let userSpecial = ['!@#$%^&'];
+let userSpecialArray = userSpecial.split('');
+let userAll = [];
 
 // Functions
 
@@ -24,52 +29,43 @@ function writePassword() {
  */
 function generatePassword() {
 
-  // Declaring the user inputs
-
- 
-
 
   // Created a way to make sure the length is acceptable
   let passwordLength = parseInt(prompt("How many characters do you want your password? (8-128 characters)"));
   if (passwordLength < 8 || passwordLength > 128) {
     alert("Must be 8-128 Characters");
     generatePassword();
-  }; 
-    
+  };
+
 
   let passwordUpper = confirm("Would you like upper case letters?")
   if (passwordUpper) {
-    Math.floor(Math.random() * userUpper.length);
+    userAll[userUpper];
   };
 
   let passwordLower = confirm("Would you like lower case letters?")
   if (passwordLower) {
-    Math.floor(Math.random() * userLower.length);
-
+    userAll[userLower];
   };
 
   let passwordSpecial = confirm("Would you like special characters?")
   if (passwordSpecial) {
-    Math.floor(Math.random() * userSpecial.length);
-
-
+    userAll[userSpecial];
   };
 
   let passwordNumbers = confirm("Would you like numbers?")
   if (passwordNumbers) {
-    Math.floor(Math.random() * userNumber.length);
-    
+    userAll[userNumber];
   };
 
+  
+  // Password is currently blank! We need to make a better one
 
-// Password is currently blank! We need to make a better one
-
-// let password = 
-
-
+  let password = Math.floor(Math.random() * userAll.length)
 
 
-// return password;
+
+  return password;
 }
 
 // Main Process
