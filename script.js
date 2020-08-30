@@ -40,32 +40,35 @@ function generatePassword() {
 
   let passwordUpper = confirm("Would you like upper case letters?")
   if (passwordUpper) {
-    userAll.push(userUpperArray);
+    userAll = userAll.concat(userUpperArray);
   };
 
   let passwordLower = confirm("Would you like lower case letters?")
   if (passwordLower) {
-    userAll.push(userLowerArray);
+    userAll = userAll.concat(userLowerArray);
   };
 
   let passwordSpecial = confirm("Would you like special characters?")
   if (passwordSpecial) {
-    userAll.push(userSpecialArray);
+    userAll = userAll.concat(userSpecialArray);
   };
 
   let passwordNumbers = confirm("Would you like numbers?")
   if (passwordNumbers) {
-    userAll.push(userNumberArray);
+    userAll = userAll.concat(userNumberArray);
   };
 
   console.log(passwordLength, passwordLower, passwordNumbers, passwordUpper, passwordSpecial)
   console.log(userAll)
   // Password is currently blank! We need to make a better one
 
-  let password = ""
+  let password = "";
 
-
-
+  for (let i = 0; i < passwordLength; i++) {
+    let random = (Math.floor(Math.random() * userAll.length));
+    password = password + userAll[random];
+  }
+console.log(password)
   return password;
 }
 
