@@ -31,28 +31,33 @@ function generatePassword() {
   let userAll = [];
 
   // Created a way to make sure the length is acceptable
+  
+
   let passwordLength = parseInt(prompt("How many characters do you want your password? (8-128 characters)"));
   if (passwordLength < 8 || passwordLength > 128) {
     alert("Must be 8-128 Characters");
     generatePassword();
   };
 
-
+// Asks if they want uppercase letters
   let passwordUpper = confirm("Would you like upper case letters?")
   if (passwordUpper) {
     userAll = userAll.concat(userUpperArray);
   };
 
+// Asks if they want lowercase letters
   let passwordLower = confirm("Would you like lower case letters?")
   if (passwordLower) {
     userAll = userAll.concat(userLowerArray);
   };
 
+  // Asks if they want special characters
   let passwordSpecial = confirm("Would you like special characters?")
   if (passwordSpecial) {
     userAll = userAll.concat(userSpecialArray);
   };
 
+  // Asks if they want numbers
   let passwordNumbers = confirm("Would you like numbers?")
   if (passwordNumbers) {
     userAll = userAll.concat(userNumberArray);
