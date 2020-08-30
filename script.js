@@ -1,16 +1,6 @@
 // Constants
 const generateBtn = document.querySelector("#generate");
 
-// Declaring the user inputs
-let userUpper = ['ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
-let userUpperArray = userUpper.split('');
-let userLower = ['abcefghijklmnopqrstuvwxyz'];
-let userLowerArray = userLower.split('');
-let userNumber = ['123456789'];
-let userNumberArray = userNumber.split('');
-let userSpecial = ['!@#$%^&'];
-let userSpecialArray = userSpecial.split('');
-let userAll = [];
 
 // Functions
 
@@ -29,6 +19,16 @@ function writePassword() {
  */
 function generatePassword() {
 
+  // Declaring the user inputs
+  let userUpper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  let userUpperArray = userUpper.split("");
+  let userLower = 'abcefghijklmnopqrstuvwxyz';
+  let userLowerArray = userLower.split("");
+  let userNumber = '123456789';
+  let userNumberArray = userNumber.split("");
+  let userSpecial = '!@#$%^&';
+  let userSpecialArray = userSpecial.split("");
+  let userAll = [];
 
   // Created a way to make sure the length is acceptable
   let passwordLength = parseInt(prompt("How many characters do you want your password? (8-128 characters)"));
@@ -40,28 +40,29 @@ function generatePassword() {
 
   let passwordUpper = confirm("Would you like upper case letters?")
   if (passwordUpper) {
-    userAll[userUpper];
+    userAll.push(userUpperArray);
   };
 
   let passwordLower = confirm("Would you like lower case letters?")
   if (passwordLower) {
-    userAll[userLower];
+    userAll.push(userLowerArray);
   };
 
   let passwordSpecial = confirm("Would you like special characters?")
   if (passwordSpecial) {
-    userAll[userSpecial];
+    userAll.push(userSpecialArray);
   };
 
   let passwordNumbers = confirm("Would you like numbers?")
   if (passwordNumbers) {
-    userAll[userNumber];
+    userAll.push(userNumberArray);
   };
 
-  
+  console.log(passwordLength, passwordLower, passwordNumbers, passwordUpper, passwordSpecial)
+  console.log(userAll)
   // Password is currently blank! We need to make a better one
 
-  let password = Math.floor(Math.random() * userAll.length)
+  let password = ""
 
 
 
